@@ -19,13 +19,14 @@ const (
 )
 
 type key string
-type RandomKey []byte
 
 // These constants used as RandomKey
 // parsing a secret received from the API.
 const (
 	encryptionKey key = "encryption"
 )
+
+type RandomKey []byte
 
 type Cluster struct {
 	APIServerEncryptionKey RandomKey
