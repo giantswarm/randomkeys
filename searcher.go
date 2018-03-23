@@ -83,7 +83,7 @@ func (s *Searcher) SearchCluster(clusterID string) (Cluster, error) {
 func (s *Searcher) search(randomKey *RandomKey, clusterID string, key key) error {
 	// Select only secrets that match the given key and the given
 	// cluster clusterID.
-	selector := fmt.Sprintf("%s=%s, %s=%s", ComponentLabel, key, ClusterIDLabel, clusterID)
+	selector := fmt.Sprintf("%s=%s, %s=%s", RandomKeyLabel, key, ClusterIDLabel, clusterID)
 
 	watcher, err := s.k8sClient.Core().Secrets(SecretNamespace).Watch(metav1.ListOptions{
 		LabelSelector: selector,
@@ -131,7 +131,7 @@ func fillRandomKeyFromSecret(randomkey *RandomKey, obj runtime.Object, clusterID
 	if clusterID != gotClusterID {
 		return microerror.Maskf(invalidSecretError, "expected clusterID = %q, got %q", clusterID, gotClusterID)
 	}
-	gotKeys := secret.Labels[ComponentLabel]
+	gotKeys := secret.Labels[RandomKeyLabel]
 	if string(key) != gotKeys {
 		return microerror.Maskf(invalidSecretError, "expected random key = %q, got %q", key, gotKeys)
 	}

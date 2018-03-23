@@ -3,12 +3,12 @@ package randomkeys
 // These constants are used when filtering the secrets, to only retrieve the
 // ones we are interested in.
 const (
-	// ComponentLabel is the label used in the secret to identify a secret
+	// RandomKeyLabel is the label used in the secret to identify a secret
 	// containing the random key
 	//
 	// TODO replace with "giantswarm.io/randomkey" and add to
 	// https://github.com/giantswarm/fmt.
-	ComponentLabel = "clusterKey"
+	RandomKeyLabel = "clusterKey"
 	// ClusterIDLabel is the label used in the secret to identify a secret
 	// containing the random key.
 	//
