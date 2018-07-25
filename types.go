@@ -10,7 +10,7 @@ const (
 	randomKeyLabel = "giantswarm.io/randomkey"
 	// clusterIDLabel is the label used in the secret to identify a secret
 	// containing the random key.
-	clusterIDLabel = "giantswarm.io/cluster-id"
+	clusterLabel = "giantswarm.io/cluster"
 
 	// legacyRandomKeyLabel is the label used in the secret to identify a secret
 	// containing the random key.
@@ -57,7 +57,7 @@ func K8sName(clusterID string, key Key) string {
 func K8sLabels(clusterID string, key Key) map[string]string {
 	return map[string]string{
 		randomKeyLabel:       key.String(),
-		clusterIDLabel:       clusterID,
+		clusterLabel:         clusterID,
 		legacyRandomKeyLabel: key.String(),
 		legacyClusterIDLabel: clusterID,
 	}
