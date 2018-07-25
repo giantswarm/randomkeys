@@ -13,7 +13,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 
 	testCases := []struct {
 		ClusterID        string
-		RandomKey        key
+		RandomKey        Key
 		Secret           *corev1.Secret
 		ExpectedCluster  Cluster
 		ExpectedErrMatch func(error) bool
@@ -21,7 +21,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		// 0: ok.
 		{
 			ClusterID: "eggs2",
-			RandomKey: key("encryption"),
+			RandomKey: EncryptionKey,
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
@@ -41,7 +41,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		// 1: cluster ID doesn't match.
 		{
 			ClusterID: "eggs5",
-			RandomKey: key("encryption"),
+			RandomKey: EncryptionKey,
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
@@ -59,7 +59,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		// 2: random key doesn't match.
 		{
 			ClusterID: "eggs2",
-			RandomKey: key("randomly"),
+			RandomKey: Key("randomly"),
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
@@ -77,7 +77,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		// 3: encryption field missing.
 		{
 			ClusterID: "eggs2",
-			RandomKey: key("encryption"),
+			RandomKey: EncryptionKey,
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
