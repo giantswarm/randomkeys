@@ -8,7 +8,7 @@ const (
 	// randomKeyLabel is the label used in the secret to identify a secret
 	// containing the random key.
 	randomKeyLabel = "giantswarm.io/randomkey"
-	// clusterIDLabel is the label used in the secret to identify a secret
+	// clusterLabel is the label used in the secret to identify a secret
 	// containing the random key.
 	clusterLabel = "giantswarm.io/cluster"
 
