@@ -85,7 +85,7 @@ func (s *Searcher) search(randomKey *RandomKey, clusterID string, key Key) error
 	// cluster clusterID.
 	selector := fmt.Sprintf("%s=%s, %s=%s", legacyRandomKeyLabel, key, legacyClusterIDLabel, clusterID)
 
-	watcher, err := s.k8sClient.Core().Secrets(SecretNamespace).Watch(metav1.ListOptions{
+	watcher, err := s.k8sClient.CoreV1().Secrets(SecretNamespace).Watch(metav1.ListOptions{
 		LabelSelector: selector,
 	})
 	if err != nil {
