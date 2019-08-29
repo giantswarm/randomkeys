@@ -25,8 +25,8 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
-						"clusterID":  "eggs2",
-						"clusterKey": "encryption",
+						clusterLabel:   "eggs2",
+						randomKeyLabel: "encryption",
 					},
 				},
 				Data: map[string][]byte{
@@ -45,8 +45,8 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
-						"clusterID":  "eggs2",
-						"clusterKey": "encryption",
+						clusterLabel:   "eggs2",
+						randomKeyLabel: "encryption",
 					},
 				},
 				Data: map[string][]byte{
@@ -63,8 +63,8 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
-						"clusterID":  "eggs2",
-						"clusterKey": "encryption",
+						clusterLabel:   "eggs2",
+						randomKeyLabel: "encryption",
 					},
 				},
 				Data: map[string][]byte{
@@ -81,8 +81,8 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 			Secret: &corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
-						"clusterID":  "eggs2",
-						"clusterKey": "encryption",
+						clusterLabel:   "eggs2",
+						randomKeyLabel: "encryption",
 					},
 				},
 				Data: map[string][]byte{},
