@@ -91,7 +91,7 @@ func (s *Searcher) search(randomKey *RandomKey, clusterID string, key Key) error
 			case watch.Added:
 				err := fillRandomKeyFromSecret(randomKey, event.Object, clusterID, key)
 				if err != nil {
-					return microerror.Maskf(err, "watching secrets, selector = %q")
+					return microerror.Mask(err)
 				}
 
 				return nil
