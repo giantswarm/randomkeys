@@ -7,5 +7,5 @@ require (
 	github.com/giantswarm/micrologger v0.3.1
 	k8s.io/api v0.16.6
 	k8s.io/apimachinery v0.16.6
-	k8s.io/client-go v0.16.6
+	k8s.io/client-go v0.18.0
 )
