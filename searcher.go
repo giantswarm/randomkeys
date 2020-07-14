@@ -1,6 +1,7 @@
 package randomkeys
 
 import (
+	"context"
 	"fmt"
 	"time"
 
@@ -46,7 +47,7 @@ func NewSearcher(config Config) (*Searcher, error) {
 	return s, nil
 }
 
-func (s *Searcher) SearchCluster(clusterID string) (Cluster, error) {
+func (s *Searcher) SearchCluster(ctx context.Context, clusterID string) (Cluster, error) {
 	var cluster Cluster
 
 	keys := []struct {
@@ -57,7 +58,7 @@ func (s *Searcher) SearchCluster(clusterID string) (Cluster, error) {
 	}
 
 	for _, k := range keys {
-		err := s.search(k.RandomKey, clusterID, k.Type)
+		err := s.search(ctx, k.RandomKey, clusterID, k.Type)
 		if err != nil {
 			return Cluster{}, microerror.Mask(err)
 		}
@@ -66,12 +67,12 @@ func (s *Searcher) SearchCluster(clusterID string) (Cluster, error) {
 	return cluster, nil
 }
 
-func (s *Searcher) search(randomKey *RandomKey, clusterID string, key Key) error {
+func (s *Searcher) search(ctx context.Context, randomKey *RandomKey, clusterID string, key Key) error {
 	// Select only secrets that match the given key and the given
 	// cluster clusterID.
 	selector := fmt.Sprintf("%s=%s, %s=%s", randomKeyLabel, key, clusterLabel, clusterID)
 
-	watcher, err := s.k8sClient.CoreV1().Secrets(SecretNamespace).Watch(metav1.ListOptions{
+	watcher, err := s.k8sClient.CoreV1().Secrets(SecretNamespace).Watch(ctx, metav1.ListOptions{
 		LabelSelector: selector,
 	})
 	if err != nil {
