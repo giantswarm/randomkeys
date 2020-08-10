@@ -1,5 +1,7 @@
 package randomkeys
 
+import "context"
+
 type Interface interface {
-	SearchCluster(clusterID string) (Cluster, error)
+	SearchCluster(ctx context.Context, clusterID string) (Cluster, error)
 }

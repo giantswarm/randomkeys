@@ -1,7 +1,9 @@
 package randomkeystest
 
 import (
-	"github.com/giantswarm/randomkeys"
+	"context"
+
+	"github.com/giantswarm/randomkeys/v2"
 )
 
 type Searcher struct {
@@ -11,6 +13,6 @@ func NewSearcher() *Searcher {
 	return &Searcher{}
 }
 
-func (s *Searcher) SearchCluster(clusterID string) (randomkeys.Cluster, error) {
+func (s *Searcher) SearchCluster(ctx context.Context, clusterID string) (randomkeys.Cluster, error) {
 	return randomkeys.Cluster{}, nil
 }

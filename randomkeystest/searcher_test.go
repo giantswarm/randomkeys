@@ -3,7 +3,7 @@ package randomkeystest
 import (
 	"testing"
 
-	"github.com/giantswarm/randomkeys"
+	"github.com/giantswarm/randomkeys/v2"
 )
 
 func Test_RandomReysTest_NewSearcher(t *testing.T) {
