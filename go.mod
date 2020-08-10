@@ -1,6 +1,6 @@
-module github.com/giantswarm/randomkeys
+module github.com/giantswarm/randomkeys/v2
 
-go 1.13
+go 1.14
 
 require (
 	github.com/giantswarm/microerror v0.2.0
