@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Look for secrets in all namespaces rather than the default only.
+
 ## [2.0.0] - 2020-08-10
 
 ### Changed

@@ -72,7 +72,7 @@ func (s *Searcher) search(ctx context.Context, randomKey *RandomKey, clusterID s
 	// cluster clusterID.
 	selector := fmt.Sprintf("%s=%s, %s=%s", randomKeyLabel, key, clusterLabel, clusterID)
 
-	watcher, err := s.k8sClient.CoreV1().Secrets(SecretNamespace).Watch(ctx, metav1.ListOptions{
+	watcher, err := s.k8sClient.CoreV1().Secrets(corev1.NamespaceAll).Watch(ctx, metav1.ListOptions{
 		LabelSelector: selector,
 	})
 	if err != nil {

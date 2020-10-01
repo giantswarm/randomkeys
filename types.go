@@ -2,10 +2,6 @@ package randomkeys
 
 import "fmt"
 
-const (
-	SecretNamespace = "default"
-)
-
 // These constants are used when filtering the secrets, to only retrieve the
 // ones we are interested in.
 const (
