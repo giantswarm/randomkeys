@@ -14,7 +14,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 	testCases := []struct {
 		ClusterID        string
 		RandomKey        Key
-		Secret           *corev1.Secret
+		Secret           corev1.Secret
 		ExpectedCluster  Cluster
 		ExpectedErrMatch func(error) bool
 	}{
@@ -22,7 +22,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		{
 			ClusterID: "eggs2",
 			RandomKey: EncryptionKey,
-			Secret: &corev1.Secret{
+			Secret: corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
 						clusterLabel:   "eggs2",
@@ -42,7 +42,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		{
 			ClusterID: "eggs5",
 			RandomKey: EncryptionKey,
-			Secret: &corev1.Secret{
+			Secret: corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
 						clusterLabel:   "eggs2",
@@ -60,7 +60,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		{
 			ClusterID: "eggs2",
 			RandomKey: Key("randomly"),
-			Secret: &corev1.Secret{
+			Secret: corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
 						clusterLabel:   "eggs2",
@@ -78,7 +78,7 @@ func Test_fillRandomKeyFromSecret(t *testing.T) {
 		{
 			ClusterID: "eggs2",
 			RandomKey: EncryptionKey,
-			Secret: &corev1.Secret{
+			Secret: corev1.Secret{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
 						clusterLabel:   "eggs2",
