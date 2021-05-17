@@ -1,9 +1,13 @@
 package randomkeys
 
-import "fmt"
+import (
+	"fmt"
+
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+)
 
 const (
-	SecretNamespace = "default"
+	SecretNamespace = metav1.NamespaceAll
 )
 
 // These constants are used when filtering the secrets, to only retrieve the
