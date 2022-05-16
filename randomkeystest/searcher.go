@@ -3,7 +3,7 @@ package randomkeystest
 import (
 	"context"
 
-	"github.com/giantswarm/randomkeys/v2"
+	"github.com/giantswarm/randomkeys/v3"
 )
 
 type Searcher struct {
